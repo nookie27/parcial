@@ -1,0 +1,145 @@
+#include <stdio.h>
+
+int main ()
+{
+
+    int i;
+    float sumadorV=0;
+    float venta;
+
+
+    for(i=1; i<=7; i++)
+    {
+
+        if(i==1)
+        {
+
+
+            do
+            {
+                printf("Ingrese el monto vendido del dia lunes: ");
+                scanf("%f",&venta);
+            }
+            while(venta<0 || venta>100000);
+        }
+        if(i==2)
+        {
+            do
+            {
+                printf("Ingrese el monto vendido del dia martes: ");
+                scanf("%f",&venta);
+            }
+            while(venta<0 || venta>100000);
+        }
+        if(i==3)
+        {
+            do
+            {
+                printf("Ingrese el monto vendido del dia miercoles: ");
+                scanf("%f",&venta);
+            }
+            while(venta<0 || venta>100000);
+        }
+        if(i==4)
+        {
+            do
+            {
+                printf("Ingrese el monto vendido del dia jueves: ");
+                scanf("%f",&venta);
+            }
+            while(venta<0 || venta>100000);
+        }
+        if(i==5)
+        {
+            do
+            {
+                printf("Ingrese el monto vendido del dia viernes: ");
+                scanf("%f",&venta);
+            }
+            while(venta<0 || venta>100000);
+        }
+        if(i==6)
+        {
+
+            do
+            {
+                printf("Ingrese el monto vendido del dia sabado: ");
+                scanf("%f",&venta);
+            }
+            while(venta<0 || venta>100000);
+        }
+        if(i==7)
+        {
+            do
+            {
+                printf("Ingrese el monto vendido del dia domingos: ");
+                scanf("%f",&venta);
+            }
+            while(venta<0 || venta>100000);
+        }
+        sumadorV = sumadorV + venta;//acumulador
+
+    }
+
+    pVisualizarResultado(sumadorV);
+
+}
+
+//////FUNCIONES////////////
+
+float fObtenerPorcentajeComision(float sumadorV)
+{
+    float porcentajeV;
+    if(sumadorV>=0 && sumadorV<10000)
+    {
+        porcentajeV = (sumadorV*0)/100;
+    }
+    if(sumadorV>=10000 && sumadorV<20000)
+    {
+        porcentajeV = (sumadorV*5)/100;
+    }
+    if(sumadorV>=20000 && sumadorV<40000)
+    {
+        porcentajeV = (sumadorV*10)/100;
+    }
+    if(sumadorV>=40000)
+    {
+        porcentajeV = (sumadorV*15)/100;
+    }
+
+    return porcentajeV;
+}
+
+float fObtenerTotalComision(float sumadorV)
+{
+    float totalC;
+    float porcentaje =fObtenerPorcentajeComision(sumadorV);
+    return totalC = (sumadorV * porcentaje)/100;
+
+}
+
+void pVisualizarResultado(float sumadorV)
+{
+    float porcentaje=fObtenerPorcentajeComision(sumadorV);
+    float comisonTotal=fObtenerTotalComision(sumadorV);
+    printf("El total acumulado de ventas ha sido: $%.2f \n",sumadorV);
+
+    if(sumadorV>=0 && sumadorV<10000)
+    {
+        printf("El prcentaje de comision obtenido es de: 0 porciento\n");
+    }
+    if(sumadorV>=10000 && sumadorV<20000)
+    {
+        printf("El prcentaje de comision obtenido es de: 5 porciento\n");
+    }
+    if(sumadorV>=20000 && sumadorV<40000)
+    {
+        printf("El prcentaje de comision obtenido es de: 10 porciento\n");
+    }
+    if(sumadorV>=40000)
+    {
+        printf("El prcentaje de comision obtenido es de: 15 porciento\n");
+    }
+
+    printf("cuyo monto de comision equivale a: $ %.2f \n",porcentaje);
+}
